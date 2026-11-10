@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Monta le pagine del sito: layout comune (head, header, footer) + corpo da _build/pages/*.html.
-Uso:  python3 _build/build.py      (scrive in ../sito)
+Uso:  python3 _build/build.py      (scrive le pagine nella radice del repo)
 Nei frammenti {{R}} diventa il prefisso verso la radice ("" oppure "../")."""
 import os, re, hashlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "..", "sito")
+OUT = os.path.join(HERE, "..")
 SITE = "https://soldato-franz.com"
 
 PAGES = [
@@ -51,23 +51,23 @@ HEAD = """<!doctype html>
 <a class="skip" href="#main">Vai al contenuto</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="{R}index.html" aria-label="Trail del Soldato Franz, home">
+    <a class="brand" href="/" aria-label="Trail del Soldato Franz, home">
       <img src="{R}assets/img/logo-franz.png" width="640" height="308" alt="Trail del Soldato Franz">
       <span>21.03.2027<br>Cuvio · VA</span>
     </a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav"><i></i>Menu</button>
     <nav class="nav" id="nav" aria-label="Principale">
       <div class="nav-drop">
-        <a href="{R}percorsi.html"{cur_percorsi}>Percorsi</a>
+        <a href="/percorsi"{cur_percorsi}>Percorsi</a>
         <div class="drop">
-          <a href="{R}percorsi/25km.html"{cur_25}><b>25 km</b><span>San Martino Trail<small>1100 D+ · competitiva</small></span></a>
-          <a href="{R}percorsi/12km.html"{cur_12}><b>12 km</b><span>Valcuvia Trail<small>600 D+ · competitiva</small></span></a>
-          <a href="{R}percorsi/7km.html"{cur_7}><b>7 km</b><span>Ludico-motoria<small>150 D+ · per tutti</small></span></a>
+          <a href="/percorsi/25km"{cur_25}><b>25 km</b><span>San Martino Trail<small>1100 D+ · competitiva</small></span></a>
+          <a href="/percorsi/12km"{cur_12}><b>12 km</b><span>Valcuvia Trail<small>600 D+ · competitiva</small></span></a>
+          <a href="/percorsi/7km"{cur_7}><b>7 km</b><span>Ludico-motoria<small>150 D+ · per tutti</small></span></a>
         </div>
       </div>
-      <a href="{R}index.html#programma">Programma</a>
-      <a href="{R}index.html#iscrizioni">Quote</a>
-      <a href="{R}regolamento.html"{cur_regolamento}>Regolamento</a>
+      <a href="/#programma">Programma</a>
+      <a href="/#iscrizioni">Quote</a>
+      <a href="/regolamento"{cur_regolamento}>Regolamento</a>
       <a class="btn btn--main btn--sm" data-cta="short" data-pos="header" href="https://www.wedosport.net/trail-del-soldato-franz-2027/iscrizioni"><span class="t">Iscriviti</span></a>
     </nav>
   </div>
@@ -86,18 +86,18 @@ FOOT = """</main>
       <div>
         <h4>Percorsi</h4>
         <ul>
-          <li><a href="{R}percorsi/25km.html">25 km · San Martino Trail</a></li>
-          <li><a href="{R}percorsi/12km.html">12 km · Valcuvia Trail</a></li>
-          <li><a href="{R}percorsi/7km.html">7 km · Ludico-motoria</a></li>
-          <li><a href="{R}percorsi.html">Confronta i percorsi</a></li>
+          <li><a href="/percorsi/25km">25 km · San Martino Trail</a></li>
+          <li><a href="/percorsi/12km">12 km · Valcuvia Trail</a></li>
+          <li><a href="/percorsi/7km">7 km · Ludico-motoria</a></li>
+          <li><a href="/percorsi">Confronta i percorsi</a></li>
         </ul>
       </div>
       <div>
         <h4>Info</h4>
         <ul>
-          <li><a href="{R}index.html#programma">Programma</a></li>
-          <li><a href="{R}index.html#iscrizioni">Quote e iscrizioni</a></li>
-          <li><a href="{R}regolamento.html">Regolamento</a></li>
+          <li><a href="/#programma">Programma</a></li>
+          <li><a href="/#iscrizioni">Quote e iscrizioni</a></li>
+          <li><a href="/regolamento">Regolamento</a></li>
           <li><a href="{R}images/locandina-2027.pdf" data-track="locandina_download">Locandina (PDF)</a></li>
         </ul>
       </div>

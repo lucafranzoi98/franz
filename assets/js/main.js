@@ -392,11 +392,11 @@
     return '<svg class="peaks" viewBox="0 0 38 12" width="38" height="12" role="img" aria-label="Difficoltà ' + n + ' su 3">' + t + "</svg>";
   }
   var PICK = {
-    "25": { n: 3, name: "San Martino Trail", diff: "Impegnativo", url: "percorsi/25km.html",
+    "25": { n: 3, name: "San Martino Trail", diff: "Impegnativo", url: "/percorsi/25km",
       d: [["1.100 m", "dislivello"], ["8:30", "partenza da Cuvio"], ["6 h", "tempo massimo"], ["3", "ristori + arrivo"]] },
-    "12": { n: 2, name: "Valcuvia Trail", diff: "Moderato", url: "percorsi/12km.html",
+    "12": { n: 2, name: "Valcuvia Trail", diff: "Moderato", url: "/percorsi/12km",
       d: [["600 m", "dislivello"], ["10:00", "partenza da Cassano"], ["4 h 30", "tempo massimo"], ["1", "ristoro + arrivo"]] },
-    "7": { n: 1, name: "Ludico-motoria", diff: "Per tutti", url: "percorsi/7km.html",
+    "7": { n: 1, name: "Ludico-motoria", diff: "Per tutti", url: "/percorsi/7km",
       d: [["150 m", "dislivello"], ["9:15", "partenza da Cuvio"], ["nessuna", "classifica"], ["5–10 €", "buono pasto incluso"]] }
   };
   function drawPick(host, key) {
@@ -417,9 +417,9 @@
     var legend = document.querySelector("[data-hero-legend]");
     var key = "25";
     var INFO = {
-      "25": '<b>25 km</b> · 1.100 m D+ · partenza 8:30 da Cuvio · <a href="percorsi/25km.html">apri il percorso</a>',
-      "12": '<b>12 km</b> · 600 m D+ · partenza 10:00 da Cassano Valcuvia · <a href="percorsi/12km.html">apri il percorso</a>',
-      "7": '<b>7 km</b> · 150 m D+ · partenza 9:15 da Cuvio, non competitiva · <a href="percorsi/7km.html">apri il percorso</a>'
+      "25": '<b>25 km</b> · 1.100 m D+ · partenza 8:30 da Cuvio · <a href="/percorsi/25km">apri il percorso</a>',
+      "12": '<b>12 km</b> · 600 m D+ · partenza 10:00 da Cassano Valcuvia · <a href="/percorsi/12km">apri il percorso</a>',
+      "7": '<b>7 km</b> · 150 m D+ · partenza 9:15 da Cuvio, non competitiva · <a href="/percorsi/7km">apri il percorso</a>'
     };
     var render = function (anim) {
       drawProfile(host, key, { draw: anim, yMin: 200, yMax: 1150, padTop: 60, simple: true });
@@ -554,7 +554,7 @@
       var ll = window.ROUTES[k].track.map(function (p) { return [p[0], p[1]]; });
       L.polyline(ll, { color: "#fff", weight: 8, opacity: .85 }).addTo(map);
       var pl = L.polyline(ll, styles[k]).addTo(map).bindTooltip(k + " km", { sticky: true });
-      pl.on("click", function () { location.href = "percorsi/" + k + "km.html"; });
+      pl.on("click", function () { location.href = "/percorsi/" + k + "km"; });
       group.push(pl);
     });
     map.fitBounds(L.featureGroup(group).getBounds(), { padding: [20, 20] });
