@@ -147,7 +147,7 @@ def build():
     ver = asset_version()
     for out, frag, title, desc, cur, has_map in PAGES:
         depth = out.count("/")
-        R = "../" * depth
+        R = "/"  # percorsi assoluti: funzionano con qualsiasi URL (/percorsi, /percorsi/, /percorsi/25km…)
         if out == "404.html":
             R = "/"
         body = open(os.path.join(HERE, "pages", frag), encoding="utf-8").read()
