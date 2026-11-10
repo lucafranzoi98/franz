@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Server di prova con gli URL "puliti" come su Netlify (/percorsi/25km -> percorsi/25km.html).
+"""Server di prova con gli URL "puliti" come su Vercel (/percorsi/25km -> percorsi/25km.html).
 Uso: python3 _build/serve.py   poi apri http://localhost:8765"""
 import http.server, os, socketserver
 
